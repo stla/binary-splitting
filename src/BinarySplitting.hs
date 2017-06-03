@@ -1,6 +1,7 @@
 module BinarySplitting
+  (bsplitting)
   where
-import Data.Ratio ((%))
+-- import Data.Ratio ((%))
 
 
 split1 :: [Rational] -> [Rational]
@@ -27,14 +28,9 @@ split3 adb = split adb (length alpha)
             else split (split2 uvw, split1 v, split1 w) (div n 2)
           where (u, v, w) = uvw
 
-splitting :: [Rational] -> [Rational] -> Rational
-splitting u v = num / den + 1
+bsplitting :: [Rational] -> [Rational] -> Rational
+bsplitting u v = num / den + 1
   where ([num], _, [den]) = split3 (alpha, delta, beta)
         alpha = u
         delta = u
         beta = v
-
-piapprox :: Int -> Double
-piapprox m = 2 * fromRational (splitting u v)
-  where u = [i | i <- [1 .. 2^m]]
-        v = [2*i+1 | i <- [1 .. 2^m]]

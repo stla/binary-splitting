@@ -16,6 +16,9 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     BinarySplitting
+                     , ApproxPi
+                     , Exponential
+                     , Hypergeo1F1
   build-depends:       base >= 4.7 && < 5
   default-language:    Haskell2010
 
