@@ -19,6 +19,7 @@ library
                      , ApproxPi
                      , Exponential
                      , Hypergeo1F1
+                     , Erf
   build-depends:       base >= 4.7 && < 5
   default-language:    Haskell2010
 
