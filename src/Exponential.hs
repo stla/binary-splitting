@@ -13,3 +13,11 @@ exponential m x = (result, fromRational result)
 
 exp1 :: Int -> (Rational, Double)
 exp1 m = exponential m 1
+
+expo :: Int -> Rational -> Rational
+expo m x = result
+  where u = replicate (fromInteger n) x
+        v = [i % one | i <- [1 .. n]]
+        n = 2^m
+        one = 1::Integer
+        result = bsplitting u v

@@ -2,10 +2,21 @@ module Erf
   where
 import BinarySplitting
 import Hypergeo1F1
+import Exponential
 import Data.Ratio ((%))
 
+erf :: Int -> Rational -> Double
+erf m x = (fromRational $
+  2 * x * hypergeo1F1 m (1%1) (3%2) (x^2) *
+    expo m (-x^2)) / sqrt pi
+    
 erf1 :: Int -> Rational -> Double
 erf1 m x = (fromRational $ 2 * x * hypergeo1F1 m (1%2) (3%2) (-x^2)) / sqrt(pi)
+
+erf11 :: Int -> Rational -> Double
+erf11 m x = exp (fromRational (-x^2)) *
+  (fromRational $ 2 * x * hypergeo1F1 m (1%1) (3%2) (x^2)) / sqrt(pi)
+
 
 -- https://en.wikipedia.org/wiki/Error_function
 erf2 :: Int -> Rational -> Double
