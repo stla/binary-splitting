@@ -1,5 +1,5 @@
 module BinarySplitting
-  (bsplitting)
+  (bsplitting, bsplitting2)
   where
 
 split0 :: ([Rational], [Rational]) -> [Rational]
@@ -23,3 +23,7 @@ split1 adb = split adb (length alpha)
 bsplitting :: [Rational] -> [Rational] -> Rational
 bsplitting u v = num / den + 1
   where ([num], _, [den]) = split1 (u, u, v)
+
+bsplitting2 :: Int -> [Rational] -> [Rational] -> Rational
+bsplitting2 m u v = num / den + 1
+  where ([num], _, [den]) = split1 (take (2^m) u, take (2^m) u, take (2^m) v)

@@ -11,3 +11,8 @@ hypergeo1F1 m a b x = result
         result = bsplitting u v
 
 test_hypergeo1F1 = hypergeo1F1 8 (1%2) (3%2) (-1)
+
+h1F1 :: Int -> Rational -> Rational -> Rational -> Rational
+h1F1 m a b x = bsplitting2 m u v
+  where u = [(a+i)*x | i <- [0 ..]]
+        v = [(b+i)*(i+1) | i <- [0 ..]]
